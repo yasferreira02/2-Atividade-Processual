@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+      <!-- Nome: Amanda Luiza Dias Santos   N° 02     
+           Nome: Erick Oliveira Gomes       N° 08
+           Nome: Isadora Cassioti Teodoro   N° 13     3°B
+           Nome: Patrick Gomes de Sousa     N° 25
+           Nome: Yasmin Ferreira Salgado    N° 30
+        -->
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Números Primos</title>
+    <script>
+        function mostrarPrimos() {
+            var limite = parseInt(document.getElementById("limite").value, 10);
+            var canvas = document.getElementById("MeuCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "blue";
+            var primosEncontrados = [];
+            var contadorPrimos = 0;
+ 
+        function verificarPrimo(N1) {
+            for (var contador = 2; contador <= Math.sqrt(N1); contador++) {
+                if (N1 % contador === 0) {
+                    return false;
+                    break;
+                }
+            }
+            return true;
+        }
+
+            for (var N1 = 2; contadorPrimos < limite; N1++) {
+                if (verificarPrimo(N1)) {
+                    primosEncontrados.push(N1);
+                    contadorPrimos++;
+                }
+            }
+
+            var resultado = primosEncontrados + ".";
+            ctx.fillText(resultado, 10, 50);
+        }
+    </script>
+</head>
+<body>
+    <label for="limite">Encontrar os números primos:</label>   
+    <input type="numero" id="limite"><br><br>
+
+    <button onclick="mostrarPrimos()">Mostrar</button><br><br>
+    
+    <canvas id="MeuCanvas" width="1300" height="300" style="border:1px solid #000000; background-color: white;"></canvas>
+</body>
+</html>
